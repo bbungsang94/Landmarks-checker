@@ -175,6 +175,19 @@
      <string>Mode</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="btnUpdate">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>10</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Update</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
@@ -260,6 +273,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnUpdate</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateImages()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>288</x>
+     <y>30</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>330</x>
+     <y>11</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>readFolders()</slot>
@@ -268,5 +297,6 @@
   <slot>procPoint(event)</slot>
   <slot>toggleMode()</slot>
   <slot>changeFolder(int)</slot>
+  <slot>updateImages()</slot>
  </slots>
 </ui>
