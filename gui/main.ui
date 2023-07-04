@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1920</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="btnNext">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>10</y>
+      <width>71</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Next
+(&gt;)</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnPrev">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>71</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Prev
+(&lt;)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbMain">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>80</y>
+      <width>1500</width>
+      <height>970</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb1">
+    <property name="geometry">
+     <rect>
+      <x>1560</x>
+      <y>20</y>
+      <width>330</width>
+      <height>190</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb2">
+    <property name="geometry">
+     <rect>
+      <x>1560</x>
+      <y>230</y>
+      <width>330</width>
+      <height>190</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb3">
+    <property name="geometry">
+     <rect>
+      <x>1560</x>
+      <y>440</y>
+      <width>330</width>
+      <height>190</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb4">
+    <property name="geometry">
+     <rect>
+      <x>1560</x>
+      <y>650</y>
+      <width>330</width>
+      <height>190</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb5">
+    <property name="geometry">
+     <rect>
+      <x>1560</x>
+      <y>860</y>
+      <width>330</width>
+      <height>190</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="edPath">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>30</y>
+      <width>721</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>30</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="statusTip">
+     <string>0</string>
+    </property>
+    <property name="text">
+     <string>Root Path</string>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbFolders">
+    <property name="geometry">
+     <rect>
+      <x>1320</x>
+      <y>30</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnMode">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>10</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mode</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>edPath</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>readFolders()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>796</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>830</x>
+     <y>10</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnPrev</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>prevImage()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>4</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnNext</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>nextImage()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>134</x>
+     <y>31</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>203</x>
+     <y>42</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnMode</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>toggleMode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>389</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>341</x>
+     <y>31</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cbFolders</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeFolder(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1514</x>
+     <y>49</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1547</x>
+     <y>18</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>readFolders()</slot>
+  <slot>prevImage()</slot>
+  <slot>nextImage()</slot>
+  <slot>procPoint(event)</slot>
+  <slot>toggleMode()</slot>
+  <slot>changeFolder(int)</slot>
+ </slots>
+</ui>
