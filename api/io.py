@@ -37,6 +37,13 @@ class FolderLoader:
         return cv2.cvtColor(im_bgr, cv2.COLOR_BGR2RGB)
 
     @classmethod
+    def save_image(cls, image, path, filename, size):
+        bgr = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+        resized = cv2.resize(bgr, size)
+        cv2.imwrite(os.path.join(path, filename), resized)
+        return os.path.join(path, filename)
+
+    @classmethod
     def get_txts(cls, extensions=None):
         if len(cls._folders) == 0:
             return []
@@ -46,6 +53,10 @@ class FolderLoader:
         files = os.listdir(os.path.join(cls._root, cls._folders[cls._now_index]))
         files = [os.path.join(cls._root, cls._folders[cls._now_index], x) for x in files if extensions in x]
         return files
+
+    @classmethod
+    def change_index(cls, index):
+        cls._now_index = index
 
     @staticmethod
     def get_contents(full_path):
@@ -60,7 +71,7 @@ class FolderLoader:
                 float_list = [float(item) for item in split]
                 content = {'filename': filename, 'coordinates': float_list}
                 batch.append(content)
-        return content
+        return batch
 
 
     @staticmethod
