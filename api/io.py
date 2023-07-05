@@ -44,6 +44,15 @@ class FolderLoader:
         return os.path.join(path, filename)
 
     @classmethod
+    def save_text(cls, batch):
+        text_file = cls.get_txts()
+        with open(text_file[0], "w") as file:
+            for stub in batch:
+                line = stub['filename'] + ''.join([" %.3f" % num for num in stub['coordinates']])
+                line += '\n'
+                file.write(line)
+
+    @classmethod
     def get_txts(cls, extensions=None):
         if len(cls._folders) == 0:
             return []
@@ -66,9 +75,10 @@ class FolderLoader:
             for line in strings:
                 split = line.split(' ')
                 filename = split[0]
-                del split[0]
+                for index in reversed(range(15)):
+                    del split[index]
                 del split[-1]
-                float_list = [float(item) for item in split]
+                float_list = [int(item.split('.')[0]) for item in split]
                 content = {'filename': filename, 'coordinates': float_list}
                 batch.append(content)
         return batch

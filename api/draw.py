@@ -3,13 +3,14 @@ import cv2
 
 def draw_points(image, coordinates):
     # x, y 하나씩인 경우와 튜플인 경우가 있음
-    if isinstance(coordinates[0], float):
+    if isinstance(coordinates[0], int):
         if len(coordinates) % 2 != 0:
             return None
         image = Drawer.draw_list(image, coordinates)
     else:
         image = Drawer.draw_tuple(image, coordinates)
     return image
+
 
 class Drawer:
     @staticmethod
@@ -18,8 +19,9 @@ class Drawer:
         for index in range(0, len(coordinates), 2):
             x = coordinates[index]
             y = coordinates[index + 1]
-            image = cv2.circle(image, (int(x), int(y)), 3, (0, 255, 0), 2)
-            image = cv2.putText(image, '%02d' % number, (int(x) - 20, int(y) - 15), cv2.FONT_HERSHEY_PLAIN, 2, (255, 255, 0), 1, cv2.LINE_AA)
+            image = cv2.circle(image, (x, y), 3, (0, 255, 0), 2)
+            image = cv2.putText(image, '%02d' % number, (x - 10, y - 15), cv2.FONT_HERSHEY_PLAIN, 1,
+                                (255, 255, 0), 1, cv2.LINE_AA)
             number += 1
         return image
 
